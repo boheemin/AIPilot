@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Philosophy of Science - Course Introduction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #4967AA 0%, #5a7bc8 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #4967AA, #5a7bc8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #4967AA;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, rgba(73, 103, 170, 0.8), rgba(90, 123, 200, 0.8));
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2em;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            padding: 2rem;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #e3e3e3, #f0f0f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1em;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .text-content h3 {
+            color: #4967AA;
+            margin-bottom: 1rem;
+            font-size: 1.3em;
+        }
+        
+        .text-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f6f8ff, #e8f0ff);
+            border: 2px solid #4967AA;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #4967AA;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .competency-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .level-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-top: 4px solid #4967AA;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(73, 103, 170, 0.15);
+        }
+        
+        .level-card h4 {
+            color: #4967AA;
+            margin-bottom: 1rem;
+            font-size: 1.2em;
+        }
+        
+        .level-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .level-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .level-card li::before {
+            content: "✓";
+            color: #4967AA;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .demo-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .demo-preview {
+            background: white;
+            border: 2px dashed #4967AA;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .ethics-warning {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .ethics-warning h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #4967AA, #5a7bc8);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #4967AA;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 style="font-size: 1.8em;">CBS Generative AI in Teaching and Learning Pilot</h1>
+            <h2 style="font-size: 2.5em; color: #4967AA; margin-bottom: 1.5rem; font-weight: 600; background: linear-gradient(135deg, #4967AA, #5a7bc8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI-Augmented Dual Expertise Teaching in AI Competency</h2>
+            
+            <p style="font-size: 1.1em; margin-bottom: 2rem;"><strong>Pilot Objectives:</strong> Develop AI competency through progressive learning pathways that prepare students for AI-augmented professional contexts.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: #f8f9fa; border: 2px solid #4967AA; border-radius: 12px; padding: 1.5rem;">
+                    <div style="background: #4967AA; color: white; padding: 0.5rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 600;">PILOT COURSE (Autumn 2025)</div>
+                    <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 0.5rem;">Method I: Philosophy of Science and Qualitative Methods</div>
+                    <div style="color: #666; margin-bottom: 0.5rem;">BSc Business Administration & Service Management</div>
+                    <div style="font-size: 0.9em;">Coordinator: Claudia Eger (ce.bhl@cbs.dk)</div>
+                </div>
+                
+                <div style="background: #f8f9fa; border: 2px solid #4967AA; border-radius: 12px; padding: 1.5rem;">
+                    <div style="background: #4967AA; color: white; padding: 0.5rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 600;">DISSEMINATION COURSES (Spring 2026)</div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-weight: 600; margin-bottom: 0.3rem;">• Qualitative and Quantitative Methods</div>
+                        <div style="font-size: 0.9em; color: #666; margin-left: 1rem;">BSc Digital Management | Kristian Bondo Hansen (kbh.msc@cbs.dk)</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 0.3rem;">• Philosophy of Science</div>
+                        <div style="font-size: 0.9em; color: #666; margin-left: 1rem;">BSc Business Admin & Sociology | Liv Egholm (le.bhl@cbs.dk)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 1: Understanding AI -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🧠</div>
+                <div>
+                    <div class="section-title">Part 1: Understanding AI and Its Role in Research</div>
+                    <div>Duration: 10 minutes</div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>Welcome to AI-Augmented Learning</h3>
+                        <p>In this course, you'll discover how artificial intelligence can serve as your research assistant—not to replace your thinking, but to enhance your capabilities as a scholar and critical thinker.</p>
+                        
+                        <div class="highlight-box">
+                            <h4>🎯 Our Vision</h4>
+                            <p><strong>AI as Collaborative Partner:</strong> Learn to work with AI to strengthen your research skills while maintaining your critical judgment and academic integrity.</p>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h3>🔍 AI in Philosophy of Science and Qualitative Methods</h3>
+                        <p>Consider these fundamental questions we'll explore:</p>
+                        <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li><strong>Epistemological:</strong> How does AI-generated knowledge relate to human understanding?</li>
+                            <li><strong>Methodological:</strong> How can AI enhance qualitative research methods like interviews, observations, and textual analysis?</li>
+                            <li><strong>Ethical:</strong> How do we critically evaluate AI outputs using both philosophical and methodological frameworks?</li>
+                            <li><strong>Practical:</strong> What are the best practices for integrating AI into qualitative data collection and analysis?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>🎯 Our AI Competency Pathway</h3>
+                <p style="margin-bottom: 2rem; font-size: 1.1em;"><strong>Scope of AI-Augmented Learning in This Course:</strong> We will focus on <span style="background: #f6f8ff; padding: 0.2rem 0.5rem; border-radius: 5px; border: 2px solid #4967AA; font-weight: 600;">Levels 1 and 2</span>, building foundational AI competencies for your academic and professional development.</p>
+                
+                <div class="competency-levels">
+                    <div class="level-card" style="border-top: 6px solid #4967AA; box-shadow: 0 10px 25px rgba(73, 103, 170, 0.25);">
+                        <h4>📚 Level 1: Using AI for Literature Reviews and Writing Support</h4>
+                        <ul>
+                            <li>Basic AI interaction using natural language prompts without requiring technical knowledge</li>
+                            <li>Critically evaluate, refine, and integrate AI-generated text within your own writing</li>
+                            <li>Maintain academic integrity while leveraging AI assistance</li>
+                        </ul>
+                    </div>
+                    <div class="level-card" style="border-top: 6px solid #4967AA; box-shadow: 0 10px 25px rgba(73, 103, 170, 0.25);">
+                        <h4>📊 Level 2: AI-assisted Data Analysis and Visualization</h4>
+                        <ul>
+                            <li>Learn to prepare datasets and select appropriate analytical methods</li>
+                            <li>Interpret complex analysis outputs produced by AI tools</li>
+                            <li>Understand data structures and analytical frameworks</li>
+                            <li>Translate research questions into AI-assisted analytical processes</li>
+                        </ul>
+                    </div>
+                    <div class="level-card">
+                        <h4>🤖 Level 3: Using AI for Coding Aid and Customized AI Agent Development</h4>
+                        <ul>
+                            <li>Apply programming concepts and understand AI architectural principles</li>
+                            <li>Implement iterative design methodologies</li>
+                            <li>Systematic debugging, testing, and refinement</li>
+                            <li>Develop customized AI applications for specific business challenges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 2: AI Tools -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🛠️</div>
+                <div>
+                    <div class="section-title">Part 2: Understanding Generative AI and Large Language Models</div>
+                    <div>Duration: 20 minutes</div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div style="margin-bottom: 3rem;">
+                    <h3>🤖 What is Generative AI?</h3>
+                    <p>Generative AI refers to artificial intelligence systems that can create new content—text, images, code, or other media—based on patterns learned from vast amounts of training data. Unlike traditional AI that simply classifies or analyzes existing content, generative AI can produce original outputs that didn't exist before.</p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3>🔑 Key Characteristics</h3>
+                    <ul style="margin-left: 1.5rem; font-size: 1.1em; line-height: 1.8;">
+                        <li><strong>Creative Output:</strong> Generates new content rather than just analyzing existing data</li>
+                        <li><strong>Pattern Recognition:</strong> Learns from massive datasets to understand language, style, and context</li>
+                        <li><strong>Versatile Applications:</strong> Can assist with writing, research, analysis, and problem-solving</li>
+                        <li><strong>Interactive:</strong> Responds to natural language prompts and can engage in conversations</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/rwF-X5STYks" title="Generative AI explained in 2 minutes" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="text-align: center; margin-top: 1rem; color: #4967AA;">📹 Generative AI explained in 2 minutes</h4>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3>🧠 What are Large Language Models (LLMs)?</h3>
+                    <p>Large Language Models are a specific type of generative AI trained on enormous amounts of text data. They understand and generate human-like text by predicting the most likely next word or phrase based on context. Popular examples include ChatGPT, Claude, and Gemini.</p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3>⚙️ How LLMs Work (Simplified)</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="font-size: 2em; margin-bottom: 1rem;">📚</div>
+                            <strong style="color: #4967AA;">1. Training</strong><br>
+                            <span style="color: #666;">Learn from billions of text examples from books, websites, and articles</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="font-size: 2em; margin-bottom: 1rem;">🔍</div>
+                            <strong style="color: #4967AA;">2. Pattern Recognition</strong><br>
+                            <span style="color: #666;">Identify relationships between words, concepts, and contexts</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="font-size: 2em; margin-bottom: 1rem;">✨</div>
+                            <strong style="color: #4967AA;">3. Generation</strong><br>
+                            <span style="color: #666;">Predict and produce appropriate, contextual responses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EQj9q_4dJ0k" title="LLMs for the Non-Technical" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="text-align: center; margin-top: 1rem; color: #4967AA;">📹 LLMs for the Non-Technical</h4>
+                </div>
+
+                <div>
+                    <h3>💡 Various Uses of LLMs</h3>
+                    <p>Large Language Models have diverse applications across many fields. Here are key areas relevant to academic research and business contexts:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div class="level-card">
+                            <h4>📚 Academic Research</h4>
+                            <ul>
+                                <li>Literature review assistance</li>
+                                <li>Research question development</li>
+                                <li>Data analysis and coding</li>
+                                <li>Citation formatting and management</li>
+                                <li>Methodology guidance</li>
+                            </ul>
+                        </div>
+                        <div class="level-card">
+                            <h4>✍️ Writing & Communication</h4>
+                            <ul>
+                                <li>Draft creation and editing</li>
+                                <li>Grammar and style improvement</li>
+                                <li>Translation between languages</li>
+                                <li>Email and report writing</li>
+                                <li>Presentation content development</li>
+                            </ul>
+                        </div>
+                        <div class="level-card">
+                            <h4>🔍 Analysis & Problem-Solving</h4>
+                            <ul>
+                                <li>Qualitative data theme identification</li>
+                                <li>Content summarization</li>
+                                <li>Pattern recognition in text</li>
+                                <li>Brainstorming and ideation</li>
+                                <li>Decision-making support</li>
+                            </ul>
+                        </div>
+                        <div class="level-card">
+                            <h4>💼 Business Applications</h4>
+                            <ul>
+                                <li>Customer service automation</li>
+                                <li>Market research analysis</li>
+                                <li>Content creation for marketing</li>
+                                <li>Process documentation</li>
+                                <li>Strategic planning assistance</li>
+                            </ul>
+                        </div>
+                        <div class="level-card">
+                            <h4>🎓 Educational Support</h4>
+                            <ul>
+                                <li>Personalized learning assistance</li>
+                                <li>Concept explanation and tutoring</li>
+                                <li>Practice question generation</li>
+                                <li>Study guide creation</li>
+                                <li>Feedback on student work</li>
+                            </ul>
+                        </div>
+                        <div class="level-card">
+                            <h4>💻 Technical Applications</h4>
+                            <ul>
+                                <li>Code generation and debugging</li>
+                                <li>API (Application Programming Interface) documentation</li>
+                                <li>Data processing scripts</li>
+                                <li>System integration support</li>
+                                <li>Technical writing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 2rem;">
+                        <h4>🎯 Relevance to Our Course</h4>
+                        <p>In <strong>"Philosophy of Science and Qualitative Methods,"</strong> we'll focus primarily on <em>Academic Research</em>, <em>Analysis & Problem-Solving</em>, and <em>Writing & Communication</em> applications. You'll learn to use LLMs as research assistants while maintaining critical thinking and academic integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: Ethics and Responsibility -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚖️</div>
+                <div>
+                    <div class="section-title">Part 3: Responsible AI Use & Critical Thinking</div>
+                    <div>Duration: 10 minutes</div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>🔍 Critical Evaluation Framework</h3>
+                        <p>As Philosophy of Science and Qualitative Methods students, you're uniquely positioned to critically assess AI outputs using rigorous analytical frameworks.</p>
+                        
+                        <div class="ethics-warning">
+                            <h4>⚠️ Key Considerations</h4>
+                            <ul style="margin-left: 1.5rem;">
+                                <li><strong>Bias Recognition:</strong> AI may miss cultural context in qualitative data</li>
+                                <li><strong>Source Verification:</strong> Always validate AI-suggested sources</li>
+                                <li><strong>Academic Integrity:</strong> Proper citation of AI assistance required</li>
+                                <li><strong>Critical Distance:</strong> AI enhances but never replaces your judgment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/6yDr7CWLJ8c" title="Responsible AI Use" allowfullscreen></iframe>
+                        </div>
+                        <h4 style="text-align: center; margin-top: 1rem; color: #4967AA;">📹 Responsible AI Use</h4>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/1iVcFKAFu2E" title="AI Ethics in Practice" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="text-align: center; margin-top: 1rem; color: #4967AA;">📹 AI Ethics in Practice</h4>
+                </div>
+
+                <div class="demo-section" style="margin-top: 3rem;">
+                    <h3>🚨 Recognizing AI Limitations</h3>
+                    <p>Develop critical AI evaluation skills through these actionable steps:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Always cross-verify AI-suggested sources</strong><br>
+                            <span style="color: #666;">Check that citations exist and are accurately represented</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Question AI assumptions</strong><br>
+                            <span style="color: #666;">Ask "What perspectives might be missing from this response?"</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Test AI consistency</strong><br>
+                            <span style="color: #666;">Ask the same question multiple ways to identify contradictions</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Recognize knowledge cutoffs</strong><br>
+                            <span style="color: #666;">Be aware that AI training has date limitations</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Check for cultural bias</strong><br>
+                            <span style="color: #666;">Consider whether responses reflect diverse viewpoints</span>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4967AA; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <strong style="color: #4967AA;">✅ Validate factual claims</strong><br>
+                            <span style="color: #666;">Don't accept statistics or data without independent verification</span>
+                        </div>
+                    </div>
+                    <div style="background: #f6f8ff; border: 2px solid #4967AA; border-radius: 10px; padding: 1.5rem; margin-top: 2rem;">
+                        <strong style="color: #4967AA;">✅ Maintain critical distance</strong><br>
+                        <span style="color: #666;">Use AI outputs as starting points, not final answers. Your critical thinking and subject expertise remain essential.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>🚀 Ready to Begin Your AI-Augmented Learning Journey?</h2>
+            <p>Remember: Experimentation is encouraged, and technical challenges won't affect your grades. AI is here to enhance your research capabilities, not replace your critical thinking.</p>
+            
+            <div style="margin: 2rem 0;">
+                <p style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin-bottom: 2rem;"><strong>Note:</strong> While CBS's integrated AI infrastructure will be available later this semester, we'll focus on developing core AI competencies through effective prompting techniques using publicly available AI platforms.</p>
+                
+                <strong>Next Steps:</strong>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 10px;">
+                        <strong>1. Master Effective Prompting</strong><br>
+                        Learn to communicate clearly with AI tools using structured, specific requests
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 10px;">
+                        <strong>2. Practice with Available Platforms</strong><br>
+                        Use Microsoft Copilot in compliance with CBS's AI availability (later ChatGPT when CBS AI infrastructure is ready) to develop your skills
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 10px;">
+                        <strong>3. Try Level 1 & 2 Techniques</strong><br>
+                        Focus on literature review assistance and basic data analysis methods
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 10px;">
+                        <strong>4. Prepare for Workshop 4</strong><br>
+                        Come ready for hands-on practice with prompt strategies and peer collaboration
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
